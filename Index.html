@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blue Lock - Adivina Quién</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <!-- IZQUIERDA: TABLERO -->
+    <section class="board">
+      <header class="board__header">
+        <h1 class="title">Blue Lock <span>Adivina Quién</span></h1>
+
+        <div class="board__actions">
+          <button id="btnReset" class="btn btn--ghost">Reiniciar</button>
+        </div>
+      </header>
+
+      <div class="grid" id="gridCharacters">
+        <!-- Se llena desde app.js -->
+      </div>
+    </section>
+
+    <!-- DERECHA: PANEL -->
+    <aside class="panel">
+      <div class="panel__top">
+        <div class="panel__row">
+          <button id="btnPickRandom" class="btn btn--primary">SELECCIONAR PERSONAJE</button>
+          <button id="btnChangeRandom" class="btn btn--ghost" title="Cambiar aleatorio">Cambiar</button>
+        </div>
+
+        <div class="mystery" id="mysteryBox">
+          <div class="mystery__inner" id="mysteryInner">
+            <span class="mystery__q">?</span>
+          </div>
+          <div class="mystery__name" id="mysteryName">Sin seleccionar</div>
+        </div>
+      </div>
+
+      <section class="card">
+        <h2 class="card__title">Anotaciones</h2>
+        <textarea id="notes" class="textarea" placeholder="Escribe aquí tus pistas..."></textarea>
+      </section>
+
+      <section class="card">
+        <h2 class="card__title">Adivinados</h2>
+
+        <div class="tools">
+          <input id="searchGuessed" class="input" type="text" placeholder="Filtrar nombres..." />
+          <button id="btnClearGuessed" class="btn btn--ghost btn--small">Limpiar</button>
+        </div>
+
+        <ul id="guessedList" class="list">
+          <!-- Se llena desde app.js -->
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2 class="card__title">Historial</h2>
+        <ul id="historyList" class="list list--history"></ul>
+      </section>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
