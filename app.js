@@ -107,9 +107,7 @@ const CHARACTERS = [
       `;
   
       card.addEventListener("click", () => {
-        toggleSelectedOnBoard(ch.file);
-        // Cada click también dispara el aleatorio (según tu requisito)
-        
+        toggleSelectedOnBoard(ch.file); // SOLO tablero
       });
   
       grid.appendChild(card);
@@ -122,6 +120,23 @@ const CHARACTERS = [
     renderGrid();
   }
   
+  function setSelectedEverywhere(file, isSelected) {
+    // 1) Tablero
+    if (isSelected) selectedOnBoard.add(file);
+    else selectedOnBoard.delete(file);
+  
+    // 2) Adivinados (checkbox)
+    if (isSelected) guessed.add(file);
+    else guessed.delete(file);
+  
+    // 3) Actualiza checkbox si existe en DOM (sin re-render completo)
+    const cb = document.getElementById(`g_${file}`);
+    if (cb) cb.checked = isSelected;
+  
+    // 4) Re-render del tablero para aplicar borde/oscurecido
+    renderGrid();
+  }
+
   /* ---------- Render: Guessed List (todos los nombres) ---------- */
   function renderGuessedList(filterText = "") {
     const f = filterText.trim().toLowerCase();
@@ -141,9 +156,15 @@ const CHARACTERS = [
         checkbox.id = `g_${ch.file}`;
   
         checkbox.addEventListener("change", () => {
-          if (checkbox.checked) guessed.add(ch.file);
-          else guessed.delete(ch.file);
-        });
+            if (checkbox.checked) {
+              guessed.add(ch.file);          // se guarda como adivinado
+              selectedOnBoard.add(ch.file);  // y se marca en el tablero
+            } else {
+              guessed.delete(ch.file);
+              selectedOnBoard.delete(ch.file);
+            }
+            renderGrid(); // para que el borde/oscuro se actualice
+          });
   
         const label = document.createElement("label");
         label.htmlFor = checkbox.id;
@@ -213,22 +234,27 @@ const CHARACTERS = [
   btnChangeRandom.addEventListener("click", setMysteryRandom);
   
   btnReset.addEventListener("click", () => {
+    // ✅ Resetea tablero PERO conserva lo marcado en "Adivinados"
     selectedOnBoard.clear();
-    guessed.clear();
-    
+    guessed.forEach(file => selectedOnBoard.add(file));
+  
+    // ✅ No tocar historial (se mantiene)
+    // history.length = 0;  // NO
   
     notes.value = "";
     searchGuessed.value = "";
   
     resetMystery();
     renderGrid();
-    renderGuessedList();
-    
+    renderGuessedList();   // mantiene checkboxes como estaban
+    renderHistory();       // opcional, no cambia nada
   });
   
   btnClearGuessed.addEventListener("click", () => {
-    guessed.clear();
-    renderGuessedList(searchGuessed.value);
+    guessed.forEach(file => selectedOnBoard.delete(file));
+  guessed.clear();
+  renderGuessedList(searchGuessed.value);
+  renderGrid();
   });
   
   searchGuessed.addEventListener("input", () => {
