@@ -2,68 +2,77 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Blue Lock - Adivina Quién</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Adivina Quién | Landing Page</title>
+  <link rel="stylesheet" href="landing.css" />
 </head>
 <body>
-  <main class="layout">
-    <!-- IZQUIERDA: TABLERO -->
-    <section class="board">
-      <header class="board__header">
-        <h1 class="title">Blue Lock <span>Adivina Quién</span></h1>
+  <header class="hero">
+    <div class="hero__content">
+      <p class="hero__tag">Proyecto interactivo</p>
+      <h1>Adivina Quién</h1>
+      <p class="hero__text">
+        Escoge una versión del juego y pon a prueba tus deducciones.
+        Empieza con Blue Lock y luego agrega todas las variantes que quieras.
+      </p>
 
-        <div class="board__actions">
-          <button id="btnReset" class="btn btn--ghost">Reiniciar</button>
-        </div>
-      </header>
+      <div class="hero__actions">
+        <a href="blue-lock/index.html" class="btn btn--primary">Jugar Blue Lock</a>
+        <a href="#versiones" class="btn btn--ghost">Ver versiones</a>
+      </div>
+    </div>
+  </header>
 
-      <div class="grid" id="gridCharacters">
-        <!-- Se llena desde app.js -->
+  <main class="main-content">
+    <section class="section" id="versiones">
+      <h2>Versiones disponibles</h2>
+      <div class="cards">
+        <article class="card">
+          <div class="card__badge">Disponible</div>
+          <h3>Blue Lock</h3>
+          <p>
+            La versión actual del juego con personajes de Blue Lock.
+          </p>
+          <a href="blue-lock/index.html" class="card__link">Entrar</a>
+        </article>
+
+        <article class="card card--disabled">
+          <div class="card__badge">Disponible</div>
+          <h3>Anime General</h3>
+          <p>
+            Versión con personajes de varios animes.
+          </p>
+          <a href="Anime/Index.html" class="card__link">Entrar</a>
+        </article>
+
+        <article class="card card--disabled">
+          <div class="card__badge">Próximamente</div>
+          <h3>Versión clásica</h3>
+          <p>
+            Una edición más tradicional del juego para expandir el proyecto.
+          </p>
+          <a href="#" class="card__link card__link--disabled">En desarrollo</a>
+        </article>
       </div>
     </section>
 
-    <!-- DERECHA: PANEL -->
-    <aside class="panel">
-      <div class="panel__top">
-        <div class="panel__row">
-          <button id="btnPickRandom" class="btn btn--primary">SELECCIONAR PERSONAJE</button>
-          <button id="btnChangeRandom" class="btn btn--ghost" title="Cambiar aleatorio">Cambiar</button>
+    <section class="section about">
+      <h2>¿Qué incluye este proyecto?</h2>
+      <div class="features">
+        <div class="feature">
+          <h3>Tablero interactivo</h3>
+          <p>Selecciona personajes y márcalos visualmente en el tablero.</p>
         </div>
-
-        <div class="mystery" id="mysteryBox">
-          <div class="mystery__inner" id="mysteryInner">
-            <span class="mystery__q">?</span>
-          </div>
-          <div class="mystery__name" id="mysteryName">Sin seleccionar</div>
+        <div class="feature">
+          <h3>Historial y notas</h3>
+          <p>Lleva registro de elecciones y escribe pistas durante la partida.</p>
+        </div>
+        <div class="feature">
+          <h3>Escalable</h3>
+          <p>Agrega nuevas versiones sin alterar la estructura principal.</p>
         </div>
       </div>
-
-      <section class="card">
-        <h2 class="card__title">Anotaciones</h2>
-        <textarea id="notes" class="textarea" placeholder="Escribe aquí tus pistas..."></textarea>
-      </section>
-
-      <section class="card">
-        <h2 class="card__title">Adivinados</h2>
-
-        <div class="tools">
-          <input id="searchGuessed" class="input" type="text" placeholder="Filtrar nombres..." />
-          <button id="btnClearGuessed" class="btn btn--ghost btn--small">Limpiar</button>
-        </div>
-
-        <ul id="guessedList" class="list">
-          <!-- Se llena desde app.js -->
-        </ul>
-      </section>
-
-      <section class="card">
-        <h2 class="card__title">Historial</h2>
-        <ul id="historyList" class="list list--history"></ul>
-      </section>
-    </aside>
+    </section>
   </main>
-
-  <script src="app.js"></script>
 </body>
 </html>

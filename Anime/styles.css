@@ -289,3 +289,17 @@
     .layout{ grid-template-columns:1fr; }
     .panel{ order:-1; }
   }
+
+  .btn{
+    border:2px solid rgba(0,0,0,.35);
+    background:#fff;
+    color:var(--ink);
+    border-radius: 12px;
+    padding:10px 12px;
+    font-weight:800;
+    cursor:pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
