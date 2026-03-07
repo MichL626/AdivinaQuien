@@ -50,6 +50,7 @@ const CHARACTERS = [
     { file: "HUGO.jpg" },
     { file: "FUKAKU.jpg" },
 
+    
     // ... agregá los que tengas en /img
   ].map(c => ({
     ...c,
