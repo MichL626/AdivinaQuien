@@ -1,0 +1,149 @@
+:root{
+  --bg1: #f7f4ff;
+  --bg2: #eaf8f7;
+  --card: rgba(255,255,255,0.8);
+  --text: #2c2f44;
+  --muted: #6f7590;
+  --border: rgba(80, 90, 130, 0.15);
+
+  --violet: #9b8cff;
+  --violet-dark: #7b6df0;
+
+  --mint: #8ee3d6;
+  --mint-dark: #62cdbd;
+
+  --pink: #ffb7d5;
+  --pink-dark: #f28bb8;
+
+  --shadow: 0 12px 30px rgba(80, 90, 130, 0.12);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(155,140,255,0.18), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(142,227,214,0.18), transparent 28%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
+  min-height: 100vh;
+}
+
+.home{
+  width: min(100% - 32px, 900px);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 36px;
+  padding: 32px 0;
+}
+
+.hero{
+  text-align: center;
+}
+
+.hero__tag{
+  margin: 0 0 10px;
+  color: var(--violet-dark);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.hero__title{
+  margin: 0;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  line-height: 1;
+  font-weight: 900;
+}
+
+.hero__text{
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.games{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.game-card{
+  text-decoration: none;
+  color: inherit;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.game-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px rgba(80, 90, 130, 0.16);
+}
+
+.game-card__label{
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.game-card h2{
+  margin: 0 0 10px;
+  font-size: 1.8rem;
+}
+
+.game-card p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.game-card--blue{
+  border-top: 6px solid var(--violet);
+}
+
+.game-card--blue .game-card__label{
+  background: rgba(155,140,255,0.18);
+  color: var(--violet-dark);
+}
+
+.game-card--pink{
+  border-top: 6px solid var(--pink-dark);
+}
+
+.game-card--pink .game-card__label{
+  background: rgba(255,183,213,0.24);
+  color: #c45a8d;
+}
+
+@media (max-width: 700px){
+  .games{
+    grid-template-columns: 1fr;
+  }
+
+  .home{
+    width: min(100% - 20px, 900px);
+  }
+}
+
+.hero__logo{
+  width: 180px;
+  height:auto;
+  margin-bottom:14px;
+  filter: drop-shadow(0 6px 14px rgba(0,0,0,.15));
+}

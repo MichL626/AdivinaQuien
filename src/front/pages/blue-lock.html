@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blue Lock - Adivina Quién</title>
+  <link rel="stylesheet" href="../css/game.css">
+</head>
+<body>
+
+  <main class="layout">
+
+    <section class="board" aria-label="Tablero de personajes">
+      <header class="board__header">
+        <div class="board__heading">
+            <div class="title-wrapper">
+
+                <img 
+                  src="../../../assets/img/logo.webp"
+                  alt="Logo del juego"
+                  class="logo"
+                >
+              
+                <h1 class="title">
+                  Blue Lock
+                  <span>Adivina Quién</span>
+                </h1>
+              
+              </div>
+          <p class="board__subtitle">
+            Marca personajes, toma notas y descubre al personaje secreto.
+          </p>
+        </div>
+
+        <div class="board__actions">
+          <a href="../../../index.html" class="btn btn--ghost">
+            Volver al inicio
+          </a>
+
+          <button id="btnReset" type="button" class="btn btn--ghost">
+            Reiniciar
+          </button>
+        </div>
+      </header>
+
+      <div
+        class="grid"
+        id="gridCharacters"
+        aria-label="Lista de personajes de Blue Lock"
+      ></div>
+    </section>
+
+    <aside class="panel" aria-label="Panel lateral del juego">
+
+      <section class="panel__top card panel__hero">
+        <div class="panel__row">
+          <button id="btnPickRandom" type="button" class="btn btn--primary">
+            Seleccionar personaje
+          </button>
+
+          <button id="btnChangeRandom" type="button" class="btn btn--ghost">
+            Cambiar
+          </button>
+        </div>
+
+        <div class="mystery">
+          <div
+            class="mystery__inner"
+            id="mysteryInner"
+            aria-label="Personaje secreto"
+          >
+            <span class="mystery__q">?</span>
+          </div>
+
+          <div class="mystery__name" id="mysteryName">
+            Sin seleccionar
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2 class="card__title">Anotaciones</h2>
+        <textarea
+          id="notes"
+          class="textarea"
+          placeholder="Escribe aquí tus pistas..."
+          aria-label="Área de anotaciones"
+        ></textarea>
+      </section>
+
+      <section class="card">
+        <h2 class="card__title">Adivinados</h2>
+
+        <div class="tools">
+          <input
+            id="searchGuessed"
+            class="input"
+            type="text"
+            placeholder="Filtrar nombres..."
+            aria-label="Filtrar personajes adivinados"
+          >
+
+          <button
+            id="btnClearGuessed"
+            type="button"
+            class="btn btn--ghost btn--small"
+          >
+            Limpiar
+          </button>
+        </div>
+
+        <ul
+          id="guessedList"
+          class="list"
+          aria-label="Lista de personajes marcados"
+        ></ul>
+      </section>
+
+      <section class="card">
+        <h2 class="card__title">Historial</h2>
+        <ul
+          id="historyList"
+          class="list list--history"
+          aria-label="Historial de personajes seleccionados"
+        ></ul>
+      </section>
+
+    </aside>
+
+  </main>
+
+  <script src="../js/data/blue-lock-characters.js"></script>
+  <script src="../js/game.js"></script>
+</body>
+</html>

@@ -1,78 +1,62 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Adivina Quién | Landing Page</title>
-  <link rel="stylesheet" href="landing.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adivina Quién</title>
+  <link rel="stylesheet" href="src/front/css/landing.css">
 </head>
 <body>
-  <header class="hero">
-    <div class="hero__content">
-      <p class="hero__tag">Proyecto interactivo</p>
-      <h1>Adivina Quién</h1>
-      <p class="hero__text">
-        Escoge una versión del juego y pon a prueba tus deducciones.
-        Empieza con Blue Lock y luego agrega todas las variantes que quieras.
-      </p>
 
-      <div class="hero__actions">
-        <a href="BlueLock/index.html" class="btn btn--primary">Jugar Blue Lock</a>
-        <a href="#versiones" class="btn btn--ghost">Ver versiones</a>
-      </div>
-    </div>
-  </header>
+<main class="home">
 
-  <main class="main-content">
-    <section class="section" id="versiones">
-      <h2>Versiones disponibles</h2>
-      <div class="cards">
-        <article class="card">
-          <div class="card__badge">Disponible</div>
-          <h3>Blue Lock</h3>
-          <p>
-            La versión actual del juego con personajes de Blue Lock.
-          </p>
-          <a href="BlueLock/index.html" class="card__link">Entrar</a>
-        </article>
+<section class="hero">
 
-        <article class="card card--disabled">
-          <div class="card__badge">Disponible</div>
-          <h3>Anime General</h3>
-          <p>
-            Versión con personajes de varios animes.
-          </p>
-          <a href="Anime/Index.html" class="card__link">Entrar</a>
-        </article>
+<img 
+  src="assets/img/logo.webp"
+  alt="Logo del juego"
+  class="hero__logo"
+>
 
-        <article class="card card--disabled">
-          <div class="card__badge">Próximamente</div>
-          <h3>Versión clásica</h3>
-          <p>
-            Una edición más tradicional del juego para expandir el proyecto.
-          </p>
-          <a href="#" class="card__link card__link--disabled">En desarrollo</a>
-        </article>
-      </div>
-    </section>
+<p class="hero__tag">Juego interactivo</p>
 
-    <section class="section about">
-      <h2>¿Qué incluye este proyecto?</h2>
-      <div class="features">
-        <div class="feature">
-          <h3>Tablero interactivo</h3>
-          <p>Selecciona personajes y márcalos visualmente en el tablero.</p>
-        </div>
-        <div class="feature">
-          <h3>Historial y notas</h3>
-          <p>Lleva registro de elecciones y escribe pistas durante la partida.</p>
-        </div>
-        <div class="feature">
-          <h3>Escalable</h3>
-          <p>Agrega nuevas versiones sin alterar la estructura principal.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+<h1 class="hero__title">
+  Adivina Quién
+</h1>
+
+<p class="hero__text">
+  Escoge una versión y empieza a jugar.
+</p>
+
+</section>
+
+
+<section class="games">
+
+<a href="src/front/pages/blue-lock.html" class="game-card game-card--blue">
+
+<span class="game-card__label">Modo 1</span>
+
+<h2>Blue Lock</h2>
+
+<p>Juega con personajes de Blue Lock.</p>
+
+</a>
+
+
+<a href="src/front/pages/anime-general.html" class="game-card game-card--pink">
+
+<span class="game-card__label">Modo 2</span>
+
+<h2>Anime General</h2>
+
+<p>Juega con personajes de varios animes.</p>
+
+</a>
+
+</section>
+
+</main>
+
 </body>
 </html>
